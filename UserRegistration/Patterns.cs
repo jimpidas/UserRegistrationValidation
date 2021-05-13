@@ -10,10 +10,10 @@ namespace UserRegistration
         public static string Regex_name = "^[A-Z]{1}[a-z]{2,}$";
         public static string Regex_email = "^[0-9A-Za-z]+([._+-][0-9A-Za-z]+)*[@][0-9A-Za-z]+.[a-zA-Z]{2,3}(.[a-zA-Z]{2})?$";
         public static string Regex_phone = "^[1-9]{1}[0-9]{1}\\s[1-9]{1}[0-9]{9}$";
-        public static string Regex_password = "(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+=-])[a-zA-Z0-9!@#$%^&*()_+=-]{8,}$";
+        public static string Regex_password = "^(?=.*[A-Z])(?=.*\\d)(?=[\\w]*[\\W][\\w]*$)[\\S]{8,}$";
         public void IsValidFirstName()
         {
-            Boolean flag;
+            bool flag;
             Console.WriteLine("Enter the first name");
 
             do
@@ -32,7 +32,7 @@ namespace UserRegistration
 
         public void IsValidLastName()
         {
-            Boolean flag;
+            bool flag;
             Console.WriteLine("Enter the last name");
             do
             {
@@ -50,7 +50,7 @@ namespace UserRegistration
 
         public void IsValidEmail()
         {
-            Boolean flag;
+            bool flag;
             Console.WriteLine("Enter the Email");
             do
             {
@@ -63,12 +63,13 @@ namespace UserRegistration
                 
             }
             while (!flag);
+
         }
 
 
         public void IsValidPhoneNo()
         {
-            Boolean flag;
+            bool flag;
             Console.WriteLine("Enter the Phone number");
             do
             {
@@ -87,7 +88,7 @@ namespace UserRegistration
 
         public void IsValidPasswordRule4()
         {
-            Boolean flag;
+            bool flag;
             Console.WriteLine("Enter the Password:");
             do
             {
@@ -102,8 +103,14 @@ namespace UserRegistration
             while (!flag);
         }
 
-
-
-
+        public void IsValidSampleEmail(string SampleEmail)
+        {
+            bool flag = (Regex.IsMatch(SampleEmail, Regex_email));
+            if(flag==true)
+                    Console.WriteLine("valid");
+            else
+                Console.WriteLine("Invalid");
+                  
+        }
     }
 }
