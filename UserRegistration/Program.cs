@@ -9,6 +9,7 @@ namespace UserRegistration
             Patterns pattern = new Patterns();
             pattern.IsValidFirstName();
             pattern.IsValidLastName();
+            pattern.IsValidEmail();
         }
     }
 }
