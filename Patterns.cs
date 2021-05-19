@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace UserRegistration
 {
-   public class Patterns
+    public class Patterns
     {
         public static string Regex_name = "^[A-Z]{1}[a-z]{2,}$";
-        public static string Regex_email = "^[0-9A-Za-z]+([._+-][0-9A-Za-z]+)*[@][0-9A-Za-z]+.[a-zA-Z]{2,3}(.[a-zA-Z]{2})?$";
+        public static string Regex_email = "^[0-9A-Za-z]+([._+-]*[0-9A-Za-z]+)*[@][0-9A-Za-z]+.([a-zA-Z]{2,3})*(.[a-zA-Z]{2})?$";
         public static string Regex_phone = "^[1-9]{1}[0-9]{1}\\s[1-9]{1}[0-9]{9}$";
         public static string Regex_password = "^(?=.*[A-Z])(?=.*\\d)(?=[\\w]*[\\W][\\w]*$)[\\S]{8,}$";
         public bool IsValidFirstName(string firstname)
@@ -23,7 +23,7 @@ namespace UserRegistration
                 if (flag == true)
                     return true;
                 else
-                    return false;
+                    throw new InvalidUserDetailException(InvalidUserDetailException.ExceptionType.INVALID_FIRSTNAME, "Invalid first name");
             }
             while (flag == false);
 
@@ -37,7 +37,7 @@ namespace UserRegistration
                 if (flag == true)
                     return true;
                 else
-                    return false;
+                    throw new InvalidUserDetailException(InvalidUserDetailException.ExceptionType.INVALID_LASTNAME, "Invalid last name");
             }
             while (!flag);
         }
@@ -50,7 +50,7 @@ namespace UserRegistration
                 if (flag == true)
                     return true;
                 else
-                    return false;
+                    throw new InvalidUserDetailException(InvalidUserDetailException.ExceptionType.INVALID_EMAIL, "Invalid email");
             }
             while (!flag);
         }
@@ -63,7 +63,7 @@ namespace UserRegistration
                 if (flag == true)
                     return true;
                 else
-                    return false;
+                    throw new InvalidUserDetailException(InvalidUserDetailException.ExceptionType.INVALID_MOBILE, "Invalid Phone number");
             }
             while (!flag);
         }
@@ -71,25 +71,29 @@ namespace UserRegistration
         {
             bool flag;
             do
-            { 
+            {
                 flag = (Regex.IsMatch(password, Regex_password));
                 if (flag == true)
                     return true;
                 else
-                    return false;
+                    throw new InvalidUserDetailException(InvalidUserDetailException.ExceptionType.INVALID_PASSWORD, "Invalid password");
 
             }
             while (!flag);
         }
 
-        public bool IsValidSampleEmail(string SampleEmail)
-        {
-            bool flag = (Regex.IsMatch(SampleEmail, Regex_email));
+        public bool IsValidSampleEmail(string sampleemail)
+        { 
+         bool flag;
+            do
+            { 
+            flag = (Regex.IsMatch(sampleemail, Regex_email));
             if (flag == true)
                 return true;
             else
                 return false;
-
+            }
+            while (!flag);
         }
     }
 }
