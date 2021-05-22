@@ -1,0 +1,7 @@
+C:\Users\Dell\DotNetProjects\UserRegistration\bin\Debug\UserRegistration.exe.config
+C:\Users\Dell\DotNetProjects\UserRegistration\bin\Debug\UserRegistration.exe
+C:\Users\Dell\DotNetProjects\UserRegistration\bin\Debug\UserRegistration.pdb
+C:\Users\Dell\DotNetProjects\UserRegistration\obj\Debug\UserRegistration.csprojAssemblyReference.cache
+C:\Users\Dell\DotNetProjects\UserRegistration\obj\Debug\UserRegistration.csproj.CoreCompileInputs.cache
+C:\Users\Dell\DotNetProjects\UserRegistration\obj\Debug\UserRegistration.exe
+C:\Users\Dell\DotNetProjects\UserRegistration\obj\Debug\UserRegistration.pdb
